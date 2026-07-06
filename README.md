@@ -1,46 +1,132 @@
-# Getting Started with Create React App
+# SMS 应急物资调度小程序
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+这是一个基于 React 和 Material-UI 构建的移动端微信小程序可交互 Demo，包含了"日常物资巡检"和"就近互助调度"两个核心模块。
 
-## Available Scripts
+## 🎯 核心功能
 
-In the project directory, you can run:
+### 日常物资巡检维护
+- **首页看板** - 展示物资总数、待巡检数量、异常数量等核心数据
+- **物资台账列表** - 支持搜索、分类筛选（全部/待巡检/临期异常）
+- **巡检打卡表单** - 支持巡检结果选择、现场照片上传、备注填写
+- **维护登记** - 针对临期/异常物资的维护处理登记
 
-### `npm start`
+### 就近互助调度
+- **周边物资查询** - 地图/列表双模式查看周边社区富余物资
+- **一键调度申请** - 支持数量选择、紧急程度设置、调度原因填写
+- **调度进度跟踪** - 实时跟踪物资配送进度，支持签收确认
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🎨 设计特色
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **视觉风格**：严谨、高效，采用应急救援蓝 (#1B59F8) 作为主色调
+- **状态标签**：正常-绿色 (#52C41A)，待维护-黄色 (#FAAD14)，临期/短缺-红色 (#FF4D4F)
+- **移动端优化**：iPhone 14/15 比例的响应式设计
+- **交互流畅**：丰富的动效和状态反馈
 
-### `npm test`
+## 📱 页面结构
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screen 1: 小程序首页
+- 用户身份显示：社区物资管理员 - 张华
+- 核心数据看板：总物资数、待巡检、异常数量
+- 功能模块入口：日常物资巡检、就近互助调度等
 
-### `npm run build`
+### Screen 2: 物资台账与巡检列表页
+- 搜索功能和分类标签
+- 物资卡片展示：防汛抽水泵（待巡检）、灭火器（临期预警）
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screen 3: 常态化巡检打卡表单页
+- 基础信息只读显示
+- 巡检结果选择（完好/破损/受潮/过期）
+- 现场照片上传占位组件
+- 备注输入和一键提交
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Screen 4: 物资维护登记页
+- 待维护物资高亮显示
+- 维护方式下拉选择
+- 责任人输入
+- 维护记录登记
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Screen 5: 周边物资查询与调度主页
+- 需求横幅：显示当前库存不足情况
+- 地图/列表模式切换
+- 周边富余物资列表（按距离排序）
 
-### `npm run eject`
+### Screen 6: 一键调度申请表单页
+- 调度信息展示
+- 申请数量步进器
+- 紧急程度选择
+- 调度原因填写
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Screen 7: 调度进度跟踪与签收页
+- 轻量化物流步骤条
+- 配送信息显示
+- 签收确认和核验
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 技术栈
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- React 18 + TypeScript
+- Material-UI (MUI) 组件库
+- React Router 路由管理
+- Emotion 样式方案
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🛠 安装和运行
 
-## Learn More
+```bash
+# 安装依赖
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# 启动开发服务器
+npm start
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# 访问应用
+http://localhost:3000
+```
+
+## 📖 使用流程
+
+### 物资巡检流程
+1. 首页点击"日常物资巡检维护" → 进入巡检列表页
+2. 搜索或筛选待巡检物资 → 点击"去巡检打卡"
+3. 填写巡检表单 → 上传现场照片 → 提交记录
+4. 异常物资可进入维护登记页面
+
+### 互助调度流程
+1. 首页点击"就近互助调度" → 查看周边富余物资
+2. 选择合适的社区物资 → 点击"发起调度"
+3. 填写调度申请 → 确认发送
+4. 跟踪配送进度 → 签收确认
+
+## 🎨 主题配置
+
+主要颜色定义在 `src/theme.ts` 中：
+- 应急救援蓝：#1B59F8
+- 正常绿色：#52C41A
+- 警告黄色：#FAAD14
+- 危险红色：#FF4D4F
+
+## 📋 组件说明
+
+### 通用组件特性
+- 圆角 12px 设计
+- 卡片阴影效果
+- 渐变按钮背景
+- 响应式布局
+
+### 交互特性
+- 点击动效和状态反馈
+- 表单验证和禁用状态
+- Toast 消息提示
+- Dialog 弹窗确认
+
+## 🔗 路由结构
+
+```
+/                    -> 首页
+/inspection          -> 巡检列表页
+/inspection/form     -> 巡检表单页
+/maintenance         -> 维护登记页
+/mutual-aid          -> 互助调度查询页
+/dispatch            -> 调度申请页
+/tracking            -> 进度跟踪页
+```
+
+This interactive demo showcases a comprehensive emergency material management system with intuitive navigation and professional UI design suitable for mobile WeChat mini program deployment.
